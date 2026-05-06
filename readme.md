@@ -94,17 +94,20 @@ psql -U postgres
 
 **Then run these SQL commands:**
 
+1. Create Database
 ```bash
--- 1. Create Database
 CREATE DATABASE myproject_db;
-
--- 2. Create User with proper privileges
+```
+2. Create User with proper privileges
+```bash
 CREATE USER myproject_user WITH PASSWORD 'strong_password_here';
-
--- 3. Make the user owner of the database (Best practice)
+```
+3. Make the user owner of the database (Best practice)
+```bash
 ALTER DATABASE myproject_db OWNER TO myproject_user;
-
--- 4. Grant all privileges
+```
+4. Grant all privileges
+```bash
 GRANT ALL PRIVILEGES ON DATABASE myproject_db TO myproject_user;
 ```
 
