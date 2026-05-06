@@ -23,7 +23,23 @@ cd pixelmind
 ```
 pixelmind/
  ├── manage.py
- └── pixelmind/
+ ├── requirements.txt
+ ├── .gitignore
+ ├── .env
+ ├── venv/
+ ├── static/
+ ├── templates/
+ ├── media/
+ ├── core/                    # Main app
+ │   ├── migrations/
+ │   ├── __init__.py
+ │   ├── admin.py
+ │   ├── apps.py
+ │   ├── models.py
+ │   ├── tests.py
+ │   ├── urls.py
+ │   └── views.py
+ └── pixelmind/              # Project settings
      ├── __init__.py
      ├── settings.py
      ├── urls.py
@@ -100,15 +116,15 @@ CREATE DATABASE myproject_db;
 ```
 2. Create User with proper privileges
 ```bash
-CREATE USER myproject_user WITH PASSWORD 'strong_password_here';
+CREATE USER pixelmind_user WITH PASSWORD 'strong_password_here';
 ```
 3. Make the user owner of the database (Best practice)
 ```bash
-ALTER DATABASE myproject_db OWNER TO myproject_user;
+ALTER DATABASE pixelmind OWNER TO pixelmind_user;
 ```
 4. Grant all privileges
 ```bash
-GRANT ALL PRIVILEGES ON DATABASE myproject_db TO myproject_user;
+GRANT ALL PRIVILEGES ON DATABASE pixelmind TO pixelmind_user;
 ```
 
 ## 🔐 5. Migrations
@@ -228,4 +244,26 @@ class Product(models.Model):
 ```bash
 python manage.py makemigrations
 python manage.py migrate
+```
+
+## 📦 13. Requirements
+
+**Generate `requirements.txt`:**
+
+```bash
+New-Item requirements.txt, .gitignore
+pip freeze > requirements.txt
+```
+
+**`.gitignore` should include:((
+
+```bash
+venv/
+__pycache__/
+*.pyc
+.env
+db.sqlite3
+media/
+staticfiles/
+.DS_Store
 ```
