@@ -86,6 +86,28 @@ DATABASES = {
 }
 ```
 
+**Open psql as postgres user:**
+
+```bash
+psql -U postgres
+```
+
+**Then run these SQL commands:**
+
+```bash
+-- 1. Create Database
+CREATE DATABASE myproject_db;
+
+-- 2. Create User with proper privileges
+CREATE USER myproject_user WITH PASSWORD 'strong_password_here';
+
+-- 3. Make the user owner of the database (Best practice)
+ALTER DATABASE myproject_db OWNER TO myproject_user;
+
+-- 4. Grant all privileges
+GRANT ALL PRIVILEGES ON DATABASE myproject_db TO myproject_user;
+```
+
 ## 🔐 5. Migrations
 
 ```bash
