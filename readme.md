@@ -255,7 +255,7 @@ New-Item requirements.txt, .gitignore
 pip freeze > requirements.txt
 ```
 
-**`.gitignore` should include:((
+**`.gitignore` should include:**
 
 ```bash
 venv/
